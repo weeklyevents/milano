@@ -47,7 +47,7 @@
 	
 	function onLocationFound(e) {
 		//const radius = e.accuracy / 10;
-		const radius = 20;
+		const radius = 50;
 		//const locationMarker = L.marker(e.latlng).addTo(map)
 			//.bindPopup(`Your position`).openPopup();
 
@@ -56,7 +56,7 @@
 	map.on('locationfound', onLocationFound);
 
 
-	map.locate({setView: true, maxZoom: 20});
+	map.locate({setView: true, maxZoom: 15});
 	
 	
 	// Read markers data from data.csv
