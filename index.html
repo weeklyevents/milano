@@ -27,14 +27,28 @@
 			max-height: 100%;
 		}
 	</style>
+	
 	<style>
 		body { padding: 0; margin: 0; } #map { height: 100%; width: 100vw; }
 	</style>
-
+	
+	<style>
+		body { padding: 0; margin: 0; } #dovesonobutton {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		padding: 10px;
+		z-index: 400;
+		box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+		background-image: url('locate.png');
+		background-size: 20px 20px;
+		}
+	</style>
 </head>
 <body>
 
 <div id='map'></div>
+<button id= 'dovesonobutton' name='dovesono' onclick='autolocate()'>
 
 <script>
 	const map = L.map('map').fitWorld();
@@ -57,12 +71,15 @@
           opacity: 1.0,
         }).addTo(map);
 	}
+	
 	map.on('locationfound', onLocationFound);
-
-
-	map.locate({setView: true, maxZoom: 13});
+	map.locate({setView: true, maxZoom: 13})
 	
-	
+	function autolocate() {
+		map.locate({setView: true, maxZoom: 13});
+		
+	}
+
 	// Read markers data from data.csv
 	$.get('./data.csv', function(csvString) {
 
