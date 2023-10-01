@@ -76,7 +76,7 @@
 	
 		var marker = L.marker([row.Latitude, row.Longitude], {
 			opacity: 1
-		}).bindPopup(row.Title);
+		}).bindPopup(row.Title+"\n"+row.Date+"\n"+row.Description+"\n"+row.Address);
 		
 		marker.addTo(map);
     }
