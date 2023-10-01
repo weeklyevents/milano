@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 	<base target="_top">
@@ -46,7 +46,6 @@
 
 	function onLocationFound(e) {
 		//const radius = e.accuracy / 2;
-
 		const locationMarker = L.marker(e.latlng).addTo(map)
 			//.bindPopup(`Your position`).openPopup();
 
@@ -55,12 +54,7 @@
 	map.on('locationfound', onLocationFound);
 
 
-//	function onLocationError(e) {
-//		alert(e.message);
-//	}
-//	map.on('locationerror', onLocationError);
-
-	map.locate({setView: true, maxZoom: 20});
+	map.locate({setView: true, maxZoom: 10});
 	
 	
 	// Read markers data from data.csv
@@ -74,12 +68,15 @@
 		for (var i in data) {
 		var row = data[i];
 	
+		marker.setStyle({fillColor: 'green'});
 		var marker = L.marker([row.Latitude, row.Longitude], {
 			opacity: 1
 		}).bindPopup(row.Title);
 		
 		marker.addTo(map);
     }
+
+
 
   });
 
