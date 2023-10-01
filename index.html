@@ -68,7 +68,6 @@
 		for (var i in data) {
 		var row = data[i];
 	
-		marker.setStyle({fillColor: 'green'});
 		var marker = L.marker([row.Latitude, row.Longitude], {
 			opacity: 1
 		}).bindPopup(row.Title);
