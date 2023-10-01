@@ -52,9 +52,9 @@
 			//.bindPopup(`Your position`).openPopup();
 
 		const locationCircle = L.circleMarker(e.latlng, {
-          radius : 15,
-          color  : '#00ffff',
-          opacity: 0.75,
+          radius : 5,
+          color  : '#0000D0',
+          opacity: 1.0,
         }).addTo(map);
 	}
 	map.on('locationfound', onLocationFound);
