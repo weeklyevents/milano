@@ -47,11 +47,15 @@
 	
 	function onLocationFound(e) {
 		//const radius = e.accuracy / 10;
-		const radius = 50;
+		//const radius = 50;
 		//const locationMarker = L.marker(e.latlng).addTo(map)
 			//.bindPopup(`Your position`).openPopup();
 
-		const locationCircle = L.circle(e.latlng, radius).addTo(map);
+		const locationCircle = L.circleMarker(e.latlng, {
+          radius : 15,
+          color  : '#00ffff',
+          opacity: 0.75,
+        }).addTo(map);
 	}
 	map.on('locationfound', onLocationFound);
 
