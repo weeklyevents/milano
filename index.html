@@ -67,20 +67,28 @@
 	}).addTo(map);
 
 	
+	var locationCircle = new L.circleMarker();
+	
 	function onLocationFound(e) {
 		//const radius = e.accuracy / 10;
 		//const radius = 50;		
 		
-		if (locationCircle) { // check
-			map.removeLayer(locationCircle); // remove
-			map.removeControl(locationCircle); // remove
-		}
+		//if (locationCircle) { // check
+			//map.removeLayer(locationCircle); // remove
+			//map.removeControl(locationCircle); // remove
+		//}
 		//map.removeLayer(locationCircle);
-		const locationCircle = L.circleMarker(e.latlng, {
+		
+		//.addTo(map);
+
+		map.removeLayer(locationCircle);
+        locationCircle = new L.circleMarker(e.latlng, {
           radius : 7,
           color  : '#0000D0',
           opacity: 1.0,
-        }).addTo(map);
+        });
+		map.addLayer(locationCircle);
+		
 	}
 	
 	map.on('locationfound', onLocationFound);
@@ -88,6 +96,7 @@
 	
 	function autolocate() {
 		map.locate({setView: true, maxZoom: 13});
+		
 	}
 
 	// Read markers data from data.csv
