@@ -57,9 +57,8 @@
 <button id= 'dovesonobutton' name='dovesono' onclick='autolocate()'>
 
 <script>
-	//const map = L.map('map').setView([45.4628, 9.1925], 13); 
-	//coordinate milano
-	const map = L.map('map').fitWorld();
+	const map = L.map('map').setView([45.4628, 9.1925], 13); //coordinate milano
+	//const map = L.map('map').fitWorld();
 
 
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -71,7 +70,8 @@
 	function onLocationFound(e) {
 		//const radius = e.accuracy / 10;
 		//const radius = 50;		
-
+		
+		map.removeLayer(locationCircle);
 		const locationCircle =  L.circleMarker(e.latlng, {
           radius : 7,
           color  : '#0000D0',
