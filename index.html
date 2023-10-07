@@ -88,8 +88,8 @@
 	//map.locate({setView: true, maxZoom: 13})
 	
 	function autolocate() {
-		//map.locate({setView: true, maxZoom: 13});
-		onLocationFound(e);
+		map.locate({setView: true, maxZoom: 13});
+		map.on('locationfound', onLocationFound);
 		
 	}
 
