@@ -72,7 +72,7 @@
 		//const radius = 50;		
 		
 		map.removeLayer(locationCircle);
-		const locationCircle =  L.circleMarker(e.latlng, {
+		const locationCircle = new L.circleMarker(e.latlng, {
           radius : 7,
           color  : '#0000D0',
           opacity: 1.0,
