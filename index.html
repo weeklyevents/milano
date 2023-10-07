@@ -71,8 +71,12 @@
 		//const radius = e.accuracy / 10;
 		//const radius = 50;		
 		
-		map.removeLayer(locationCircle);
-		const locationCircle = new L.circleMarker(e.latlng, {
+		if (locationCircle) { // check
+			map.removeLayer(locationCircle); // remove
+			map.removeControl(locationCircle); // remove
+		}
+		//map.removeLayer(locationCircle);
+		const locationCircle = L.circleMarker(e.latlng, {
           radius : 7,
           color  : '#0000D0',
           opacity: 1.0,
